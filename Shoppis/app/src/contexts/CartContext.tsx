@@ -51,7 +51,7 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
     const existingProduct = cart.find(({ product }) => value.id === product.id);
 
     if (existingProduct) {
-      const newCart = cart.map((item) =>
+      const newCart = cart.map((item: { product: { id: any; }; quantity: number; }) =>
         item.product.id === existingProduct.product.id
           ? { ...item, quantity: item.quantity ? item.quantity + 1 : 1 }
           : item
@@ -74,7 +74,7 @@ export const CartContextProvider = ({ children }: CartProviderProps) => {
      Deixa passar somente os itens que atendem a condição
      Atribui à variável os item que passaram na condição
     */
-    const newCart = cart.filter((c) => c.product.id !== id);
+    const newCart = cart.filter((c: { product: { id: number; }; }) => c.product.id !== id);
     // Salva no state (memória provisória enquanto o app está executando)
     setCart(newCart);
     // Salva na memória permanente do aparelho

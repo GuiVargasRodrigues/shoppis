@@ -61,7 +61,7 @@ const ProductList = () => {
             style={{ alignSelf: "center", flex: 1 }}
             data={produtos}
             renderItem={ProductCard}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item: { id: { toString: () => any; }; }) => item.id.toString()}
             contentContainerStyle={{
               flexGrow: 1,
             }}
